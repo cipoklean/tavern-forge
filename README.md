@@ -7,7 +7,7 @@ A GRC1155-compatible multi-token package for Gno.land, and a small crafting real
 - **Track / goal:** Gnome Tavern hackathon (DoraHacks, Gno.land). Live on Gno.land testnet Onyx (`onyx-1`).
 - **Library:** `gno.land/p/g1j9c3manpp89kdyhjjqqyugty70kjy5w4sw9y0m/grc1155/v0`: multi-token ledger, capability tellers, real events, per-token URI and supply, paged enumeration.
 - **Demo realm:** `gno.land/r/g1j9c3manpp89kdyhjjqqyugty70kjy5w4sw9y0m/forge/v0`: Gather, Craft, Transfer, leaderboard, inventory pages.
-- **Live:** [grc1155/v0 on gnoweb](https://latest.testnets.gno.land/p/g1j9c3manpp89kdyhjjqqyugty70kjy5w4sw9y0m/grc1155/v0) — `live` on Onyx, addpkg height 1,402,513 · [forge/v0 on gnoweb](https://latest.testnets.gno.land/r/g1j9c3manpp89kdyhjjqqyugty70kjy5w4sw9y0m/forge/v0) — submitted at height 1,408,069, awaiting testnet approval <!-- TODO-VERIFY: forge live status -->
+- **Live:** [grc1155/v0 on gnoweb](https://latest.testnets.gno.land/p/g1j9c3manpp89kdyhjjqqyugty70kjy5w4sw9y0m/grc1155/v0) — `live` on Onyx, addpkg height 1,402,513 · [forge/v0 on gnoweb](https://latest.testnets.gno.land/r/g1j9c3manpp89kdyhjjqqyugty70kjy5w4sw9y0m/forge/v0) — `live` on Onyx, addpkg height 1,408,069
 - **Docs:** [library README](./grc1155/v0/README.md) · [upstream issue #6202](https://github.com/gnolang/gno/issues/6202)
 - **Demo video:** <!-- TODO-VERIFY: demo video link -->
 
@@ -172,7 +172,7 @@ Measured on the `grc1155/v0` package with `gno version: master.1+70e39c2`:
 - **Size:** 1,141 lines of deployed library Gno (`token.gno` 776, `tellers.gno` 205, `types.gno` 160), 1,951 lines of library tests, and 855 lines of forge code (`forge.gno` 341, `render.gno` 190, `forge_test.gno` 324).
 - **Bounds:** `MaxBatchSize` 64, `MaxTokenIDLen` 64, `MaxURILen` 256, `MaxNameLen` 64, `MaxSymbolLen` 11, and enumeration page size 50.
 - **Gameplay gas** (measured on local gnodev, `GAS USED` from `gnokey maketx call`): Gather 8.70M–9.82M, Craft ingot 10.97M, Craft sword 12.34M, Transfer 8.64M, BatchTransfer 8.85M. The quickstart's `-gas-wanted 20000000` covers the largest with ~60% headroom.
-- **Deployment:** `grc1155/v0` is `live` on Onyx — addpkg at height 1,402,513, tx `rub+pZWMnmS0w+i1ZmvA/uoAmnI8kxOBHFIw2J+6LCw=`, gas used 147,439,491, approved by the testnet approver about an hour after submission. `forge/v0` was submitted at height 1,408,069 (tx `xp3IcT1yvnm/+Xlu86IaMh98vRQit+TWMCmJ21FIzc8=`, gas used 37,861,420) and is awaiting approval. A `hello` realm in this namespace has reported `live` since height 1,397,552.
+- **Deployment:** `grc1155/v0` is `live` on Onyx — addpkg at height 1,402,513, tx `rub+pZWMnmS0w+i1ZmvA/uoAmnI8kxOBHFIw2J+6LCw=`, gas used 147,439,491, approved by the testnet approver about an hour after submission. `forge/v0` was submitted at height 1,408,069 (tx `xp3IcT1yvnm/+Xlu86IaMh98vRQit+TWMCmJ21FIzc8=`, gas used 37,861,420) and went `live` about an hour after submission. A `hello` realm in this namespace has reported `live` since height 1,397,552.
 
 ---
 
