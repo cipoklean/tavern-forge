@@ -10,7 +10,7 @@ GNODEV ?= gnodev
 CANDIDATES := grc1155/v0 forge/v0 hello
 PKGS       := $(strip $(foreach d,$(CANDIDATES),$(if $(wildcard $(d)/gnomod.toml),./$(d))))
 
-.PHONY: help fmt fmt-check lint test dev deploy-lib deploy-forge status demo
+.PHONY: help fmt fmt-check lint test dev deploy-lib deploy-forge status poll demo
 
 help:
 	@echo "targets:"
@@ -22,6 +22,7 @@ help:
 	@echo "  deploy-lib   deploy grc1155/v0 to onyx-1 (KEY=dev GAS_WANTED=... MAX_DEPOSIT=...)"
 	@echo "  deploy-forge deploy forge/v0 to onyx-1"
 	@echo "  status       on-chain status of hello, grc1155/v0, forge/v0"
+	@echo "  poll         log a package's status to poll.log until it leaves inert (PKG=<pkgpath>)"
 	@echo "  demo         scripted end-to-end demo on a local gnodev"
 
 fmt:
@@ -49,6 +50,9 @@ deploy-forge:
 
 status:
 	./scripts/status.sh
+
+poll:
+	./scripts/poll_pkg.sh $(PKG)
 
 demo:
 	./scripts/demo-local.sh

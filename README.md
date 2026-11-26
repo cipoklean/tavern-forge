@@ -179,9 +179,10 @@ Measured on the `grc1155/v0` package with `gno version: master.1+70e39c2`:
 ## Repository Structure
 
 ```
-gnome-tavern/
+tavern-forge/
 ├── README.md
-├── Makefile                      # fmt / fmt-check / lint / test / dev / demo / deploy-* / status
+├── LICENSE                       # GNO Network General Public License v6 + attribution terms
+├── Makefile                      # fmt / fmt-check / lint / test / dev / demo / deploy-* / status / poll
 ├── gnowork.toml                  # gno workspace root
 ├── .gitignore
 ├── grc1155/v0/                   # p/.../grc1155/v0 — the library (live on Onyx)
@@ -214,8 +215,8 @@ gnome-tavern/
 ├── scripts/
 │   ├── deploy.sh                 # deploy one package dir to Onyx
 │   ├── status.sh                 # print live | inert | absent for hello, grc1155, forge
+│   ├── poll_pkg.sh               # polls vm/qpkgmeta_json until a package leaves "inert"
 │   └── demo-local.sh             # scripted Gather → Craft → Transfer demo on local gnodev
-└── poll_pkg.sh                   # polls vm/qpkgmeta_json until a package leaves "inert"
 ```
 
 ---
@@ -251,9 +252,10 @@ Deploy to Onyx. Fund the key first at <https://faucet.gno.land> (choose Onyx). `
 make deploy-lib   KEY=mykey   # scripts/deploy.sh → gno.land/p/g1j9c3…/grc1155/v0
 make deploy-forge KEY=mykey   # scripts/deploy.sh → gno.land/r/g1j9c3…/forge/v0 (after the lib is live)
 make status                   # scripts/status.sh → package status on Onyx (inert / live)
+make poll PKG=<pkgpath>       # scripts/poll_pkg.sh → logs status to poll.log until it leaves inert
 ```
 
-New packages on Onyx stay `inert` until they are approved. `make status`, or `./poll_pkg.sh <pkgpath>`, reports when a package goes `live`.
+New packages on Onyx stay `inert` until they are approved. `make status`, or `make poll PKG=<pkgpath>` (`scripts/poll_pkg.sh`), reports when a package goes `live`.
 
 ---
 
@@ -262,4 +264,5 @@ New packages on Onyx stay `inert` until they are approved. `make status`, or `./
 - This project is not affiliated with or endorsed by Gno.land or NewTendermint. It is a hackathon entry.
 - The capability model (Teller, PrivateLedger, CallerTeller with home-realm guard, RealmTeller, IsCanonicalTeller) is adapted from `gno.land/p/nt/grc721/v0` in [gnolang/gno](https://github.com/gnolang/gno). The method names follow EIP-1155. The gap analysis comes from [gnolang/gno#6202](https://github.com/gnolang/gno/issues/6202).
 - gnolang/gno is distributed under the **GNO Network General Public License** (a fork of the GNU AGPL v3; see [LICENSE.md](https://github.com/gnolang/gno/blob/master/LICENSE.md)). Work derived from it is subject to those terms.
+- This repository is licensed under the same GNO Network General Public License (version 6 or later), including its Strong Attribution terms; see [LICENSE](./LICENSE).
 - Testnet deployment only. No warranty.
